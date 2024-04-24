@@ -32,6 +32,29 @@ button:focus {
   max-width: 1170px;
   padding: 20px;
   margin: 0 auto;
+  display: grid;
+  grid-template:
+    "i x x" 22%
+    "i a b" 39%
+    "c d ." 39% / 1fr 1fr 1fr;
+  row-gap: 15px;
+  column-gap: 15px;
+
+  .bento--1 {
+    grid-area: a;
+  }
+
+  .bento--2 {
+    grid-area: b;
+  }
+
+  .bento--3 {
+    grid-area: c;
+  }
+
+  .bento--4 {
+    grid-area: d;
+  }
 }
 
 .bento {
@@ -52,6 +75,10 @@ button:focus {
     ),
     url("../images/nicole.jpg") center/cover no-repeat;
   min-height: 50vh;
+  grid-area: i;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .logo {
@@ -99,8 +126,7 @@ button:focus {
 }
 
 .menu li:hover {
-  /* Si on veut que le menu soit plus grand au survol */
-  /* transform: scale(1.1); */
+  transform: scale(1.1);
 }
 
 .bento--title {
@@ -110,6 +136,7 @@ button:focus {
   border-radius: 15px;
   transition: 0.3s;
   color: #020417;
+  grid-area: x;
 }
 
 .bento--title .bento__title {
@@ -228,5 +255,36 @@ button:focus {
 
   .btn {
     padding: 0.5em;
+  }
+}
+
+@media (max-width: 1170px) {
+  .container {
+    grid-template:
+      "i x x" 22%
+      "i a a" 39%
+      "b c d" 39% / 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 940px) {
+  .container {
+    grid-template:
+      "i i" 39%
+      "x x" 15%
+      "a b" 21%
+      "c d" 21% / 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    grid-template:
+      "i" 2fr
+      "x" 1fr
+      "a" 1.5fr
+      "b" 1.5fr
+      "c" 1.5fr
+      "d" 1.5fr / 1fr;
   }
 }
